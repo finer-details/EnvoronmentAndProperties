@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Decodable {
+struct Person: Codable {
     let firstName: String
     let lastName: String
     let age: Int
@@ -15,7 +15,7 @@ struct Person: Decodable {
     var hobbies: [String]
 }
 
-struct Hobbies: Decodable {
+struct Hobbies: Codable {
     let name: String
 }
 

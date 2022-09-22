@@ -10,9 +10,7 @@ import SwiftUI
 
 class PeopleViewModel: ObservableObject {
     
-    let manager = JsonManager()
-    
-    let pathString = "personData"
+    let manager = try! JsonManager(path: "personData", location: .local)
     
     @Published var people: [Person] = [
         //            .init(firstName: "David", lastName: "Devlin", age: 42, hasDrivingLicense: true, hobbies: [
@@ -21,18 +19,25 @@ class PeopleViewModel: ObservableObject {
         //            .init(firstName: "Luke", lastName: "Devlin", age: 11, hasDrivingLicense: false, hobbies: [
         //                .init(name: "Playing"), .init(name: "Lego"), .init(name: "Electronics")
         //            ])
+//        Person(firstName: "Bob", lastName: "Smith", age: 91, hasDrivingLicense: true, hobbies: ["Walking"])
     ]
+    
     init() {
-        manager.readJSON(path: pathString, location: .local) { (response: Result<[Person], Error>) in
-            self.people = self.people
+        manager.readJSON() { (response: Result<[Person], Error>) in
             switch response {
             case let .success(people):
                 self.people = people
+//                writeDatatoJson()
             case let .failure(error):
                 print(error)
-
             }
         }
+    }
+    
+    func writeDatatoJson() {
+        self.people.append(contentsOf: people)
+        self.people.removeAll()
+        self.manager.writeJSON(self.people)
     }
     
 }
