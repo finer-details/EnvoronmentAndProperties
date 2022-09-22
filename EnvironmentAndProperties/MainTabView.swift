@@ -9,9 +9,8 @@ import SwiftUI
 
 struct MainTabView: View {
     
-//    @EnvironmentObject var user: User
     @StateObject var user = User()
-//    var person = Person(firstName: "test", lastName: "Test", age: 111, hasDrivingLicense: false, hobbies: [.init(name: "Walking")])
+
     @State var selectedTag = 1
     
     var body: some View {
@@ -27,15 +26,13 @@ struct MainTabView: View {
                 }.tag(1)
                 .environmentObject(user)
 
-            PassArrayData()
+            PeopleDetailsView()
                 .tabItem {
                     VStack {
-                        Text("Array")
+                        Text("Read json")
                         Image(systemName: "books.vertical.fill")
                     }
                 }.tag(2)
-            
-            
         }
     }
 }

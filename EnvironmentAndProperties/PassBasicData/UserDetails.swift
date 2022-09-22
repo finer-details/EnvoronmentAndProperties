@@ -19,7 +19,7 @@ struct UserDetails: View {
                 VStack {
                     VStack {
                         Text("""
-        Information in this page is being passed from the previous View whereby user data is entered and passed via **@StateObject** from the ***@main*** loading file.
+        Information in this page is being passed from the previous View whereby user data is entered and passed via **@StateObject** from the ***MainTabView*** loading file where the object is first created.
         The remaining data is collected by using **`@EnvironmentObject var user: User`** and accessing the items by using:
         ***`user.username`
         `user.password`

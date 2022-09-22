@@ -12,11 +12,13 @@
 		F25A075428D4AB9E009CFE8B /* EnvironmentObjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075328D4AB9E009CFE8B /* EnvironmentObjectInfo.swift */; };
 		F25A075628D4ACBE009CFE8B /* StateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075528D4ACBE009CFE8B /* StateInfo.swift */; };
 		F25A075828D91AAA009CFE8B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075728D91AAA009CFE8B /* MainTabView.swift */; };
-		F25A075B28D9AF4C009CFE8B /* PassArrayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075A28D9AF4C009CFE8B /* PassArrayData.swift */; };
+		F25A075B28D9AF4C009CFE8B /* PeopleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075A28D9AF4C009CFE8B /* PeopleDetailsView.swift */; };
 		F25A075E28D9B0E4009CFE8B /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075D28D9B0E4009CFE8B /* PeopleViewModel.swift */; };
 		F25A076028D9B12F009CFE8B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A075F28D9B12F009CFE8B /* Person.swift */; };
 		F25A076328DB0D24009CFE8B /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25A076228DB0D24009CFE8B /* JsonManager.swift */; };
 		F25A076528DB3F17009CFE8B /* personData.json in Resources */ = {isa = PBXBuildFile; fileRef = F25A076428DB3F17009CFE8B /* personData.json */; };
+		F25AAF8028DC7B5F00B071CD /* EnterPersonDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAF7F28DC7B5F00B071CD /* EnterPersonDataView.swift */; };
+		F25AAF8328DC7D6D00B071CD /* ReadJsonInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAF8228DC7D6D00B071CD /* ReadJsonInfoView.swift */; };
 		F28C046628D4619200A802AB /* EnvironmentAndPropertiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C046528D4619200A802AB /* EnvironmentAndPropertiesApp.swift */; };
 		F28C046828D4619200A802AB /* PassBasicDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C046728D4619200A802AB /* PassBasicDataView.swift */; };
 		F28C046A28D4619300A802AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28C046928D4619300A802AB /* Assets.xcassets */; };
@@ -31,11 +33,13 @@
 		F25A075328D4AB9E009CFE8B /* EnvironmentObjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentObjectInfo.swift; sourceTree = "<group>"; };
 		F25A075528D4ACBE009CFE8B /* StateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateInfo.swift; sourceTree = "<group>"; };
 		F25A075728D91AAA009CFE8B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		F25A075A28D9AF4C009CFE8B /* PassArrayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassArrayData.swift; sourceTree = "<group>"; };
+		F25A075A28D9AF4C009CFE8B /* PeopleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDetailsView.swift; sourceTree = "<group>"; };
 		F25A075D28D9B0E4009CFE8B /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
 		F25A075F28D9B12F009CFE8B /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F25A076228DB0D24009CFE8B /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 		F25A076428DB3F17009CFE8B /* personData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personData.json; sourceTree = "<group>"; };
+		F25AAF7F28DC7B5F00B071CD /* EnterPersonDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPersonDataView.swift; sourceTree = "<group>"; };
+		F25AAF8228DC7D6D00B071CD /* ReadJsonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJsonInfoView.swift; sourceTree = "<group>"; };
 		F28C046228D4619200A802AB /* EnvironmentAndProperties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnvironmentAndProperties.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28C046528D4619200A802AB /* EnvironmentAndPropertiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentAndPropertiesApp.swift; sourceTree = "<group>"; };
 		F28C046728D4619200A802AB /* PassBasicDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassBasicDataView.swift; sourceTree = "<group>"; };
@@ -69,16 +73,24 @@
 			path = PassBasicData;
 			sourceTree = "<group>";
 		};
-		F25A075C28D9AF50009CFE8B /* PassArrayData */ = {
+		F25A075C28D9AF50009CFE8B /* ReadJsonPassArrayData */ = {
 			isa = PBXGroup;
 			children = (
 				F25A075F28D9B12F009CFE8B /* Person.swift */,
-				F25A075A28D9AF4C009CFE8B /* PassArrayData.swift */,
+				F25A075A28D9AF4C009CFE8B /* PeopleDetailsView.swift */,
 				F25A075D28D9B0E4009CFE8B /* PeopleViewModel.swift */,
-				F25A076228DB0D24009CFE8B /* JsonManager.swift */,
+				F25AAF8228DC7D6D00B071CD /* ReadJsonInfoView.swift */,
 				F25A076428DB3F17009CFE8B /* personData.json */,
 			);
-			path = PassArrayData;
+			path = ReadJsonPassArrayData;
+			sourceTree = "<group>";
+		};
+		F25AAF8128DC7B6C00B071CD /* WriteJsonPassArrayData */ = {
+			isa = PBXGroup;
+			children = (
+				F25AAF7F28DC7B5F00B071CD /* EnterPersonDataView.swift */,
+			);
+			path = WriteJsonPassArrayData;
 			sourceTree = "<group>";
 		};
 		F28C045928D4619200A802AB = {
@@ -104,7 +116,9 @@
 				F25A075728D91AAA009CFE8B /* MainTabView.swift */,
 				F25A075928D9AEF5009CFE8B /* PassBasicData */,
 				F28C047528D4819A00A802AB /* TextFieldModifier.swift */,
-				F25A075C28D9AF50009CFE8B /* PassArrayData */,
+				F25A075C28D9AF50009CFE8B /* ReadJsonPassArrayData */,
+				F25AAF8128DC7B6C00B071CD /* WriteJsonPassArrayData */,
+				F25A076228DB0D24009CFE8B /* JsonManager.swift */,
 				F28C046928D4619300A802AB /* Assets.xcassets */,
 				F28C046B28D4619300A802AB /* Preview Content */,
 			);
@@ -195,12 +209,14 @@
 				F25A075028D4A5F3009CFE8B /* StateObjectInfo.swift in Sources */,
 				F25A075E28D9B0E4009CFE8B /* PeopleViewModel.swift in Sources */,
 				F28C047628D4819A00A802AB /* TextFieldModifier.swift in Sources */,
+				F25AAF8328DC7D6D00B071CD /* ReadJsonInfoView.swift in Sources */,
 				F25A075228D4A9E8009CFE8B /* ObservedObjectInfo.swift in Sources */,
 				F25A076028D9B12F009CFE8B /* Person.swift in Sources */,
 				F28C047428D477DA00A802AB /* UserDetails.swift in Sources */,
 				F25A075428D4AB9E009CFE8B /* EnvironmentObjectInfo.swift in Sources */,
 				F25A075828D91AAA009CFE8B /* MainTabView.swift in Sources */,
-				F25A075B28D9AF4C009CFE8B /* PassArrayData.swift in Sources */,
+				F25AAF8028DC7B5F00B071CD /* EnterPersonDataView.swift in Sources */,
+				F25A075B28D9AF4C009CFE8B /* PeopleDetailsView.swift in Sources */,
 				F25A075628D4ACBE009CFE8B /* StateInfo.swift in Sources */,
 				F25A076328DB0D24009CFE8B /* JsonManager.swift in Sources */,
 			);
