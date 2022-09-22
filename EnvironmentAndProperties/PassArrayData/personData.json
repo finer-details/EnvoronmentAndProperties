@@ -1,0 +1,31 @@
+[
+    {
+        "firstName": "David",
+        "lastName": "Devlin",
+        "age": 42,
+        "hasDrivingLicense": true,
+        "hobbies": ["Waling", "Coding", "Technology"]
+    },
+    {
+        "firstName": "Luke",
+        "lastName": "Devlin",
+        "age": 11,
+        "hasDrivingLicense": false,
+        "hobbies": ["Lego", "Music", "Technology", "Electronics", "Video Games", "Reading", "Staying up late"]
+    },
+    {
+        "firstName": "Joshua",
+        "lastName": "Devlin",
+        "age": 11,
+        "hasDrivingLicense": false,
+        "hobbies": ["Lego", "Movies", "Football", "Video Games", "Playing with Fudge"]
+    },
+    {
+        "firstName": "Fudge",
+        "lastName": "Dog",
+        "age": 2,
+        "hasDrivingLicense": false,
+        "hobbies": ["Walking", "Playing with Ball", "Sleeping", "Treat Finding", "Eating"]
+    }
+]
+
