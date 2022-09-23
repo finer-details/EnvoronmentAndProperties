@@ -21,10 +21,16 @@ final class JsonManager {
     init(path: String, location: Location) throws {
         self.path = path
         self.location = location
+        
         switch location {
         case .documents:
-            self.fileURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                .appendingPathComponent(path + ".json")
+            self.fileURL = try FileManager.default.url(
+                for: .documentDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: false
+            )
+            .appendingPathComponent(path + ".json")
         case .local:
             self.fileURL = try BundleLocator.urlForResource(named: path, extension: "json")
         }
@@ -32,22 +38,18 @@ final class JsonManager {
     
     func writeJSON<T: Encodable>(_ data : T) {
         do {
-            
             let encoder = JSONEncoder()
             try encoder.encode(data).write(to: fileURL)
-            
         } catch let error {
-            print(error)
+            print(error.localizedDescription)
         }
     }
     
     func readJSON<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
         do {
-            
             let data = try Data(contentsOf: fileURL)
             let decoded = try JSONDecoder().decode(T.self, from: data)
             completion(.success(decoded))
-            
         } catch let error {
             completion(.failure(error))
         }

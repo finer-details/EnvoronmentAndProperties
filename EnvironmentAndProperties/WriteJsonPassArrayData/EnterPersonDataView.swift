@@ -9,41 +9,69 @@ import SwiftUI
 
 struct EnterPersonDataView: View {
     
-    var viewModel: PeopleViewModel
+    @Environment(\.dismiss) var dismiss
     
-    var buttonTapped: ((_ person: Person) -> Void)
+    var dataEntryClosureButton: (_ : Person) -> Void
+    var resetDataClosureButton: (_ : Person) -> Void
+    
+    @State private var firstName: String = ""
+    @State private var surname: String = ""
+    @State private var age: String = ""
+    @State private var canDrive: String = ""
+    @State private var hobbies: String = ""
     
     var body: some View {
         VStack {
-            Text("Enter Person Data View")
+            Text("Enter Person's Details")
+                .font(.title)
+                .bold()
+                .foregroundColor(.brown)
+                .padding()
+            TextField("First Name:", text: $firstName)
+                .modifier(TextFieldModifier())
+            TextField("Surname:", text: $surname)
+                .modifier(TextFieldModifier())
+            TextField("Age:", text: $age)
+                .modifier(TextFieldModifier())
+                .keyboardType(.numberPad)
+            TextField("Can person drive?", text: $canDrive)
+                .modifier(TextFieldModifier())
+                .autocapitalization(.none)
+            TextField("Hobbies:", text: $hobbies)
+                .modifier(TextFieldModifier())
             Button {
-                // TODO: create TextFields, gather all information and have it setup for appending.
-                let person: Person = .init(firstName: "David from another view", lastName: "afesga", age: 34, hasDrivingLicense: true, hobbies: ["Walking"])
-                buttonTapped(person)
-                //writeDatatoJson()
-                viewModel.people.append(person)
-                viewModel.manager.writeJSON(person)
+                let personEntry = Person(firstName: firstName, lastName: surname, age: Int(age) ?? 0, hasDrivingLicense: Bool(canDrive) ?? false, hobbies: [hobbies])
+                dataEntryClosureButton(personEntry)
+                dismiss()
             } label: {
                 Text("Submit")
                     .font(.title)
                     .foregroundColor(.black)
                     .padding()
                     .background(.green.opacity(0.7))
+                    .cornerRadius(16)
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.black, lineWidth: 1.0))
             }
-
+            Button {
+                let delete = Person(firstName: "", lastName: "", age: 0, hasDrivingLicense: false, hobbies: [])
+                resetDataClosureButton(delete)
+                dismiss()
+            } label: {
+                Text("Clear json file")
+                    .font(.title3)
+                    .foregroundColor(.black)
+                    .padding()
+                    .background(.red.opacity(0.5))
+                    .cornerRadius(18)
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.black, lineWidth: 1.5))
+            }
+            .padding(.top, 20)
         }
     }
-    
-    func writeDatatoJson() {
-        viewModel.people.append(contentsOf: viewModel.people)
-//        self.people.removeAll()
-        viewModel.manager.writeJSON(viewModel.people)
-    }
-    
 }
 
 struct EnterPersonDataView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterPersonDataView(viewModel: PeopleViewModel(), buttonTapped: { _ in })
+        EnterPersonDataView(dataEntryClosureButton: { _ in }, resetDataClosureButton: { _ in })
     }
 }

@@ -14,7 +14,7 @@ struct EnvironmentAndPropertiesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView(selectedTag: 1)
+            MainTabView(peopleViewModel: peopleViewModel, selectedTag: 1)
                 .environmentObject(peopleViewModel)
         }
     }

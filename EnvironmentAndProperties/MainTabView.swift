@@ -10,6 +10,8 @@ import SwiftUI
 struct MainTabView: View {
     
     @StateObject var user = User()
+    
+    @StateObject var peopleViewModel = PeopleViewModel()
 
     @State var selectedTag = 1
     
@@ -33,12 +35,15 @@ struct MainTabView: View {
                         Image(systemName: "books.vertical.fill")
                     }
                 }.tag(2)
+                .environmentObject(peopleViewModel)
         }
     }
 }
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        
+        let peopleViewModel = PeopleViewModel()
+        MainTabView(peopleViewModel: peopleViewModel)
     }
 }

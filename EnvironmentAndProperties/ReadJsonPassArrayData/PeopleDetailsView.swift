@@ -9,12 +9,11 @@ import SwiftUI
 
 struct PeopleDetailsView: View {
     
-    var peopleViewModel = PeopleViewModel()
+    @EnvironmentObject var peopleViewModel: PeopleViewModel
     
     let gradientDoseView = Gradient(colors: [.white, .white, Color("OceanGreen").opacity(0.1), .white])
     
-    @State var isAbleToDrive: String = "not"
-    
+    let isAbleToDrive = "not"
     @State var isFormPresented: Bool = false
     
     var columns: [GridItem] = [
@@ -47,9 +46,11 @@ struct PeopleDetailsView: View {
                                     .frame(width: geo.size.width / 2)
                                 Spacer()
                             }
+                            
                             NavigationLink(destination: ReadJsonInfoView()) {
                                 Text("More Info")
                             }
+                            
                         }
                         Divider()
                             .frame(height: 4)
@@ -57,6 +58,7 @@ struct PeopleDetailsView: View {
                         
                         // First ForEach for the name & age
                         ForEach(peopleViewModel.people, id: \.firstName) { item in
+                            
                             HStack {
                                 Spacer()
                                 Text("\(item.firstName) \(item.lastName)")
@@ -64,15 +66,13 @@ struct PeopleDetailsView: View {
                                     .frame(width: geo.size.width / 2)
                                 Spacer()
                                 Divider()
-                                    .frame(width: 5, height: 30)
+                                    .frame(width: 2, height: 30)
                                     .background(.black)
                                 Text("\(item.age)")
                                     .font(.body)
                                     .frame(width: geo.size.width / 2)
                                 Spacer()
                             }
-                            
-                            
                             
                             // Second ForEach to access the Hobbies
                             if item.hasDrivingLicense {
@@ -96,24 +96,40 @@ struct PeopleDetailsView: View {
                                     .background(.green.opacity(0.4))) {
                                         
                                         ForEach(item.hobbies, id: \.self) { hobby in
-                                            HStack {
-                                                Text("•")
-                                                    .bold()
-                                                Text("\(hobby)")
-                                                    .font(.body)
+                                            if !hobby.isEmpty {
+                                                HStack {
+                                                    Text("•")
+                                                        .bold()
+                                                    Text("\(hobby)")
+                                                        .font(.body)
+                                                }
+                                            } else {
+                                                Text("No Hobbies 😟")
                                             }
                                         }
                                     }
                             }
                             Divider()
-                                .frame(height: 4)
-                                .background(.orange)
-                                .padding()
-                            Divider()
                                 .frame(height: 2)
+                                .background(.orange)
+                            Button {
+                                if let index = peopleViewModel.people.firstIndex(where: { _item in
+                                    return _item.firstName == item.firstName
+                                }) {
+                                    peopleViewModel.people.remove(at: index)
+                                }
+                                peopleViewModel.manager.writeJSON(peopleViewModel.people)
+                            } label: {
+                                Text("Delete")
+                                    .foregroundColor(.black)
+                                Image(systemName: "minus.circle.fill")
+                                    .foregroundColor(.red)
+                            }
+                            .padding()
+                            Divider()
+                                .frame(height: 8)
                                 .background(.black)
                         }
-                        
                     }
                     .padding()
                 }
@@ -125,16 +141,28 @@ struct PeopleDetailsView: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(
                         action: {
-                            isFormPresented = true                        },
+                            isFormPresented = true
+                        },
                         label: {
-                            Image(systemName: "plus")
+                            VStack{
+                                Image(systemName: "plus")
+                                    .foregroundColor(.brown)
+                                Text("write json")
+                                    .font(.caption)
+                                    .bold()
+                                    .foregroundColor(.brown)
+                            }
                         }
                     )
                 }
             }
             .sheet(isPresented: $isFormPresented) {
-                EnterPersonDataView(viewModel: PeopleViewModel(), buttonTapped: { person in
-                    self.peopleViewModel.people.append(person)
+                EnterPersonDataView(dataEntryClosureButton: { person in
+                    // Data updates on the view when logic placed here
+                    peopleViewModel.save(person: person)
+                },
+                                    resetDataClosureButton: { deleteAllPeople in
+                    peopleViewModel.deleteAll(person: deleteAllPeople)
                 })
             }
         }
@@ -144,5 +172,6 @@ struct PeopleDetailsView: View {
 struct PeopleDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         PeopleDetailsView()
+            .environmentObject(PeopleViewModel())
     }
 }

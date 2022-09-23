@@ -12,15 +12,7 @@ class PeopleViewModel: ObservableObject {
     
     let manager = try! JsonManager(path: "personData", location: .documents)
     
-    @Published var people: [Person] = [
-        //            .init(firstName: "David", lastName: "Devlin", age: 42, hasDrivingLicense: true, hobbies: [
-        //                .init(name: "Coding"), .init(name: "Walking"), .init(name: "Technology")
-        //            ]),
-        //            .init(firstName: "Luke", lastName: "Devlin", age: 11, hasDrivingLicense: false, hobbies: [
-        //                .init(name: "Playing"), .init(name: "Lego"), .init(name: "Electronics")
-        //            ])
-//        Person(firstName: "Bob", lastName: "Smith", age: 91, hasDrivingLicense: true, hobbies: ["Walking"])
-    ]
+    @Published var people: [Person] = []
     
     init() {
         manager.readJSON() { (response: Result<[Person], Error>) in
@@ -32,5 +24,27 @@ class PeopleViewModel: ObservableObject {
             }
         }
     }
+    
+    func save(person: Person) {
+        people.append(person)
+        manager.writeJSON(people)
+    }
+    
+    func deleteAll(person: Person) {
+        people.removeAll()
+        manager.writeJSON(people)
+    }
+    
+    
+    func removePerson(item: Person) {
+        if let index = people.firstIndex(where: { _item in
+            return _item.firstName == item.firstName
+        }) {
+            people.remove(at: index)
+        }
+        manager.writeJSON(people)
+    }
+    
+    
 }
 

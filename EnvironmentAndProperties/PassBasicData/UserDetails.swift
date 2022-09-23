@@ -48,7 +48,7 @@ You need to store your variable properties in a
 ***class*** and use the **ObservableObject** protocol.
 Then use **@Published** on each property to tell them to monitor for changes.
 """).padding()
-                         Text(
+                    Text(
 """
 `class User: ObservableObject {`
 `@Published var username = ""`
@@ -59,19 +59,19 @@ Then use **@Published** on each property to tell them to monitor for changes.
                         .padding()
                         .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.black, lineWidth: 1.0))
                         .padding(.bottom, 10)
-                         }
-                         Spacer()
-                         }.navigationBarTitle("User details appear here", displayMode: .inline)
-                         }
-                         }
-                         }
-                         
-                         struct UserDetails_Previews: PreviewProvider {
-                        static var previews: some View {
-                            VStack {
-                                UserDetails()
-                                    .environmentObject(User())
-                            }
-                        }
-                    }
-                         
+                }
+                Spacer()
+            }.navigationBarTitle("User details appear here", displayMode: .inline)
+        }
+    }
+}
+
+struct UserDetails_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            UserDetails()
+                .environmentObject(User())
+        }
+    }
+}
+
