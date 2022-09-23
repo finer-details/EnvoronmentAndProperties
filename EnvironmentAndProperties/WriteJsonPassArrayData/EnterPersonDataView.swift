@@ -19,6 +19,7 @@ struct EnterPersonDataView: View {
     @State private var age: String = ""
     @State private var canDrive: String = ""
     @State private var hobbies: String = ""
+    @State private var hobbiesArray: Array = [String]()
     
     var body: some View {
         VStack {
@@ -37,10 +38,20 @@ struct EnterPersonDataView: View {
             TextField("Can person drive?", text: $canDrive)
                 .modifier(TextFieldModifier())
                 .autocapitalization(.none)
+            HStack(alignment: .top, spacing: 10) {
             TextField("Hobbies:", text: $hobbies)
                 .modifier(TextFieldModifier())
+                .padding(.leading, 55)
+                Button {
+                    hobbiesArray.append(hobbies)
+                        hobbies = ""
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .frame(width: 44, height: 44, alignment: .center)
+            }
             Button {
-                let personEntry = Person(firstName: firstName, lastName: surname, age: Int(age) ?? 0, hasDrivingLicense: Bool(canDrive) ?? false, hobbies: [hobbies])
+                let personEntry = Person(firstName: firstName, lastName: surname, age: Int(age) ?? 0, hasDrivingLicense: Bool(canDrive) ?? false, hobbies: hobbiesArray)
                 dataEntryClosureButton(personEntry)
                 dismiss()
             } label: {

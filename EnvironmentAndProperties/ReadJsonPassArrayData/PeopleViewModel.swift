@@ -10,6 +10,8 @@ import SwiftUI
 
 class PeopleViewModel: ObservableObject {
     
+    //Reference this file for Reading and Writing to json using the Generic JsonManager
+    
     let manager = try! JsonManager(path: "personData", location: .documents)
     
     @Published var people: [Person] = []
