@@ -32,7 +32,7 @@ class PeopleViewModel: ObservableObject {
         manager.writeJSON(people)
     }
     
-    func deleteAll(person: Person) {
+    func deleteAll() {
         people.removeAll()
         manager.writeJSON(people)
     }

@@ -25,6 +25,8 @@
 		F28C046D28D4619300A802AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28C046C28D4619300A802AB /* Preview Assets.xcassets */; };
 		F28C047428D477DA00A802AB /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C047328D477DA00A802AB /* UserDetails.swift */; };
 		F28C047628D4819A00A802AB /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C047528D4819A00A802AB /* TextFieldModifier.swift */; };
+		F2C7F48928E57F8D0021A511 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7F48828E57F8D0021A511 /* UserManager.swift */; };
+		F2FAC59028E8CB8E001A5879 /* PersonDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FAC58F28E8CB8E001A5879 /* PersonDataViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		F28C046C28D4619300A802AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F28C047328D477DA00A802AB /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		F28C047528D4819A00A802AB /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		F2C7F48828E57F8D0021A511 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		F2FAC58F28E8CB8E001A5879 /* PersonDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				F25AAF7F28DC7B5F00B071CD /* EnterPersonDataView.swift */,
+				F2FAC58F28E8CB8E001A5879 /* PersonDataViewModel.swift */,
+				F2C7F48828E57F8D0021A511 /* UserManager.swift */,
 			);
 			path = WriteJsonPassArrayData;
 			sourceTree = "<group>";
@@ -210,7 +216,9 @@
 				F25A075E28D9B0E4009CFE8B /* PeopleViewModel.swift in Sources */,
 				F28C047628D4819A00A802AB /* TextFieldModifier.swift in Sources */,
 				F25AAF8328DC7D6D00B071CD /* ReadJsonInfoView.swift in Sources */,
+				F2C7F48928E57F8D0021A511 /* UserManager.swift in Sources */,
 				F25A075228D4A9E8009CFE8B /* ObservedObjectInfo.swift in Sources */,
+				F2FAC59028E8CB8E001A5879 /* PersonDataViewModel.swift in Sources */,
 				F25A076028D9B12F009CFE8B /* Person.swift in Sources */,
 				F28C047428D477DA00A802AB /* UserDetails.swift in Sources */,
 				F25A075428D4AB9E009CFE8B /* EnvironmentObjectInfo.swift in Sources */,

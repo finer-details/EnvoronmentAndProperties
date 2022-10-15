@@ -12,6 +12,7 @@ struct MainTabView: View {
     @StateObject var user = User()
     
     @StateObject var peopleViewModel = PeopleViewModel()
+    @StateObject var personDataViewModel = PersonDataViewModel()
 
     @State var selectedTag = 1
     
@@ -36,6 +37,7 @@ struct MainTabView: View {
                     }
                 }.tag(2)
                 .environmentObject(peopleViewModel)
+                .environmentObject(personDataViewModel)
         }
     }
 }

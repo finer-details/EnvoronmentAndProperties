@@ -54,6 +54,15 @@ final class JsonManager {
             completion(.failure(error))
         }
     }
+    
+    func removeJSON() {
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+        }
+        catch {
+            print("There was an error deleting the json file: \(error)")
+        }
+    }
 }
 
 

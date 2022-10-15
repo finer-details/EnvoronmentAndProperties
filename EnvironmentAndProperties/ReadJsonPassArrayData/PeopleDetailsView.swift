@@ -161,8 +161,8 @@ struct PeopleDetailsView: View {
                     // Data updates on the view when logic placed here
                     peopleViewModel.save(person: person)
                 },
-                                    resetDataClosureButton: { deleteAllPeople in
-                    peopleViewModel.deleteAll(person: deleteAllPeople)
+                                    resetDataClosureButton: {
+                    peopleViewModel.deleteAll()
                 })
             }
         }

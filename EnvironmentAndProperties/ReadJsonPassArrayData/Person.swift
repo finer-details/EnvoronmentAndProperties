@@ -15,7 +15,8 @@ struct Person: Codable {
     var hobbies: [String]
 }
 
-struct Hobbies: Codable {
+struct Hobbies: Codable, Identifiable, Hashable {
+    var id = UUID()
     let name: String
 }
 

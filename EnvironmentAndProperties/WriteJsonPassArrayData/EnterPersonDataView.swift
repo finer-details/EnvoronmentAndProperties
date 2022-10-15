@@ -12,7 +12,7 @@ struct EnterPersonDataView: View {
     @Environment(\.dismiss) var dismiss
     
     var dataEntryClosureButton: (_ : Person) -> Void
-    var resetDataClosureButton: (_ : Person) -> Void
+    var resetDataClosureButton: () -> Void
     
     @State private var firstName: String = ""
     @State private var surname: String = ""
@@ -64,8 +64,7 @@ struct EnterPersonDataView: View {
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.black, lineWidth: 1.0))
             }
             Button {
-                let delete = Person(firstName: "", lastName: "", age: 0, hasDrivingLicense: false, hobbies: [])
-                resetDataClosureButton(delete)
+                resetDataClosureButton()
                 dismiss()
             } label: {
                 Text("Clear json file")
@@ -83,6 +82,6 @@ struct EnterPersonDataView: View {
 
 struct EnterPersonDataView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterPersonDataView(dataEntryClosureButton: { _ in }, resetDataClosureButton: { _ in })
+        EnterPersonDataView(dataEntryClosureButton: { _ in }, resetDataClosureButton: { })
     }
 }
